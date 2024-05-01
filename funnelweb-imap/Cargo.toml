@@ -1,0 +1,14 @@
+[package]
+name = "funnelweb-imap"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+thingbuf = { version = "0.1", features = ["static"] }
+async-imap = { version = "0.9" }
+async-native-tls = "0.5.0"
+
+[dev-dependencies]
+insta = { version = "1.38" }

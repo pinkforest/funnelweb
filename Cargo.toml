@@ -1,4 +1,4 @@
 [workspace]
-members = ["funnelweb"]
+members = ["funnelweb", "funnelweb-config", "funnelweb-imap", "funnelweb-imap-widget"]
 
 resolver = "2"

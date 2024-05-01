@@ -41,7 +41,9 @@ impl Config {
 
 #[derive(Debug, Deserialize, PartialEq)]
 pub struct ImapConfig {
-    pub name: Option<String>,
+    pub name: String,
+    pub username: Option<String>,
+    pub password: Option<String>,
     pub host: String,
     pub port: Option<u32>,
     pub tls: Option<bool>,

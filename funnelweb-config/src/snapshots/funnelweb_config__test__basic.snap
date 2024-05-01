@@ -6,9 +6,7 @@ Ok(
     Config {
         imap: [
             ImapConfig {
-                name: Some(
-                    "horse",
-                ),
+                name: "horse",
                 host: "localhost",
                 port: Some(
                     993,

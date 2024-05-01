@@ -3,6 +3,11 @@ name = "funnelweb"
 version = "0.1.0"
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
+crossbeam-utils = { version = "0.8" }
+thingbuf = { version = "0.1", features = ["static"] }
+funnelweb-config = { version = "0.1", path = "../funnelweb-config" }
+funnelweb-imap = { version = "0.1", path = "../funnelweb-imap" }
+funnelweb-imap-widget = { version = "0.1", path = "../funnelweb-imap-widget" }
+crossterm = "0.27.0"
+ratatui = { version = "0.26", features = ["unstable-widget-ref"] }
