@@ -1,7 +1,7 @@
 use crate::ImapConnection;
 use crate::ImapConnectionState;
 
-use crossterm::event::Event;
+use crossterm::event::{Event, KeyEventKind, KeyCode};
 
 use ratatui::prelude::*;
 use ratatui::style::{Color, Style};
@@ -29,21 +29,27 @@ impl ImapConnections {
     pub fn push(&mut self, connection: ImapConnection) {
         self.connections.push(connection);
     }
-    pub fn handle_event(&mut self, event: Event) -> bool {
-        if let event::Event::Key(key) = event {
+    pub fn handle_event(&mut self, event: &Event) -> bool {
+        if let Event::Key(key) = event {
             if key.kind != KeyEventKind::Press {
-                return;
+                return false;
             }
-            let selection = match key.code {
-                KeyCode::Char(c) => c,
-                _ => return,
+            let selection: u32 = match key.code {
+                KeyCode::Char(c) => {
+                    match c.to_digit(10) {
+                        Some(d) => d,
+                        None => return false,
+                    }
+                },
+                _ => return false,
             };
 
-            let selected_connection_name =
-                imap_connections.connections.get(0).unwrap().name.clone();
-            imap_connections.state.selected = Some(selected_connection_name);
-            select_connection = false;
+            if let Some(selection_exists) = self.connections.get(selection as usize) {
+                self.state.selected = Some(selection_exists.name.clone());
+                return true;
+            }
         }
+        false
     }
 }
 

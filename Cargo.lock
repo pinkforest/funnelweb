@@ -535,6 +535,7 @@ dependencies = [
 name = "funnelweb-imap-widget"
 version = "0.1.0"
 dependencies = [
+ "crossterm",
  "ratatui",
 ]
 

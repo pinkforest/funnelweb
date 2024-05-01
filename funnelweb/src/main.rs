@@ -88,7 +88,7 @@ fn ui_main(config: FunnelWebConfig) -> Result<()> {
         if event::poll(std::time::Duration::from_millis(16))? {
             let event_in = event::read()?;
             if select_connection {
-                if imap_connections.handle_event(event_in) {
+                if imap_connections.handle_event(&event_in) {
                     select_connection = false;
                 }
             }
