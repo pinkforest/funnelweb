@@ -1,0 +1,18 @@
+[[imap]]
+name = "horse"
+host = "localhost"
+port = 993
+tls = true
+ca = "ca.crt"
+
+[storage]
+backend = "bonsaidb"
+
+[index]
+backend = "tantivy"
+
+[bonsaidb]
+file = "funnel.bonsaidb"
+
+[tantivy]
+directory = "tantivy.idx"

@@ -1,0 +1,40 @@
+---
+source: funnelweb-config/src/lib.rs
+expression: "Config::from_file(\"test_data/basic.toml\")"
+---
+Ok(
+    Config {
+        imap: [
+            ImapConfig {
+                name: Some(
+                    "horse",
+                ),
+                host: "localhost",
+                port: Some(
+                    993,
+                ),
+                tls: Some(
+                    true,
+                ),
+                ca: Some(
+                    "ca.crt",
+                ),
+            },
+        ],
+        storage: Some(
+            StorageConfig {
+                backend: bonsaidb,
+            },
+        ),
+        bonsaidb: Some(
+            BonsaiDbConfig {
+                file: "funnel.bonsaidb",
+            },
+        ),
+        tantivy: Some(
+            TantivyConfig {
+                directory: "tantivy.idx",
+            },
+        ),
+    },
+)

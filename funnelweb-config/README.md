@@ -1,0 +1,3 @@
+# funnelweb-config
+
+Internal config
